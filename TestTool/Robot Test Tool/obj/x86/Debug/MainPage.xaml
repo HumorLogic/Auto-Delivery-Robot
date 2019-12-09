@@ -41,6 +41,7 @@
         <!--控制按键部分 Control Button-->
         <!--前进按钮 Forward-->
         <Button x:ConnectionId='2'
+            x:Name="forward_btn"
             Style="{StaticResource AccentButtonStyle}"
             Grid.Row="2"
             Grid.Column="1"
@@ -49,10 +50,10 @@
             Margin="230,74,0,0"
             Content="前进"
             FontSize="35" 
-            VerticalAlignment="Top"                     
+            VerticalAlignment="Top"                          
           />
         <!--后退按钮 Backward-->
-        <Button x:ConnectionId='3'
+        <Button x:ConnectionId='3' x:Name="back_btn"
             Style="{StaticResource AccentButtonStyle}"
             Grid.Row="2"
             Grid.Column="1"
@@ -87,7 +88,7 @@
             Margin="365,149,0,0" 
             VerticalAlignment="Top"
           />
-        <Button x:ConnectionId='4'
+        <Button x:ConnectionId='4' x:Name="brake_btn"
             Style="{StaticResource AccentButtonStyle}"
             Background="DarkRed"
             Grid.Row="2"
@@ -98,7 +99,7 @@
             Content="刹车"
             FontSize="35" 
             Margin="561,125,0,0" 
-            VerticalAlignment="Top"                       
+            VerticalAlignment="Top"                        
           />
         <Button x:ConnectionId='5' x:Name="serial_port_btn"
             Style="{StaticResource AccentButtonStyle}"

@@ -39,24 +39,34 @@ namespace Robot_Test_Tool
         {
             port.Write(msg);
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        //刹车按钮事件
+        private void brake_btn_Click(object sender, RoutedEventArgs e)
+        {
+            PortWrite("0");
+        }
+
+
+        //前进按钮事件
+        private void forward_btn_Click(object sender, RoutedEventArgs e)
         {
             PortWrite("1");
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+
+        //后退按钮事件
+        private void back_btn_Click(object sender, RoutedEventArgs e)
         {
             PortWrite("2");
         }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            PortWrite("0");
-        }
+        
+       
 
         private void serial_port_btn_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+      
     }
 }
