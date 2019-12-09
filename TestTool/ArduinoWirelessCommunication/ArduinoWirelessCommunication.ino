@@ -62,12 +62,7 @@ void drive_motor(int state)
     else if (state == 2)
         motor_backward();
     else if (state == 3)
-        motor_neutral();
-      
-   
-    
-
-
+        motor_neutral(); 
 }
 
 
