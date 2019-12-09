@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.IO.Ports;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -22,9 +23,40 @@ namespace Robot_Test_Tool
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        static SerialPort port;
         public MainPage()
         {
             this.InitializeComponent();
+            if (port == null)
+            {
+                port = new SerialPort("COM3", 115200);
+                port.Open();
+                serial_port_btn.Content = "串口开启";
+            }
+        }
+
+        private void PortWrite(string msg)
+        {
+            port.Write(msg);
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PortWrite("1");
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PortWrite("2");
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            PortWrite("0");
+        }
+
+        private void serial_port_btn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

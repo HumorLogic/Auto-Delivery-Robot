@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>A013CCC370DB2CEE1EECA3E48438C63735E7B79389D2DC67C93B8FC7398F4366</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>84283B8B011EF18A21EAD78061E972D9062D37FA6D932A730BF725FD0534C2B8</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>52aa5273-04f8-4d47-882b-04ee910f92c0_1.0.0.0_x86__p9cyyfahzs3tp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>52aa5273-04f8-4d47-882b-04ee910f92c0_p9cyyfahzs3tp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>52aa5273-04f8-4d47-882b-04ee910f92c0</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-12-09T04:57:00.883</Modified>
+      <Modified>2019-12-09T07:41:40.241</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Robot Test Tool.exe">
       <PackagePath>entrypoint\Robot Test Tool.exe</PackagePath>
-      <Modified>2019-12-09T04:57:00.431</Modified>
+      <Modified>2019-12-09T07:25:10.917</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -86,15 +86,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Robot Test Tool.xr.xml">
       <PackagePath>Robot Test Tool.xr.xml</PackagePath>
-      <Modified>2019-12-09T04:57:00.254</Modified>
+      <Modified>2019-12-09T05:28:20.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-12-09T04:18:53.936</Modified>
+      <Modified>2019-12-09T07:25:10.649</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-12-09T04:57:00.260</Modified>
+      <Modified>2019-12-09T07:25:10.649</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -102,11 +102,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-12-09T04:18:54.732</Modified>
+      <Modified>2019-12-09T07:41:39.482</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Core\Robot Test Tool.exe">
       <PackagePath>Robot Test Tool.exe</PackagePath>
-      <Modified>2019-12-09T04:57:00.877</Modified>
+      <Modified>2019-12-09T07:41:40.188</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

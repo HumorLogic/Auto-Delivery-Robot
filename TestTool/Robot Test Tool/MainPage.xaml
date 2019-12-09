@@ -49,7 +49,7 @@
             Margin="230,74,0,0"
             Content="前进"
             FontSize="35" 
-            VerticalAlignment="Top"
+            VerticalAlignment="Top" Click="Button_Click"
           />
         <!--后退按钮 Backward-->
         <Button
@@ -61,7 +61,7 @@
             Margin="220,209,0,30"
             Content="后退"
             FontSize="35" 
-            VerticalAlignment="Top"
+            VerticalAlignment="Top" Click="Button_Click_1"
           />
         <!--左转按钮 Turn Left-->
         <Button
@@ -70,7 +70,7 @@
             Grid.Column="1"
             Width="120"
             Height="60"
-            Content="前进"
+            Content="左转"
             FontSize="35" 
             Margin="90,144,0,0" 
             VerticalAlignment="Top"
@@ -82,10 +82,35 @@
             Grid.Column="1"
             Width="120"
             Height="60"
-            Content="前进"
+            Content="右转"
             FontSize="35" 
             Margin="365,149,0,0" 
             VerticalAlignment="Top"
+          />
+        <Button
+            Style="{StaticResource AccentButtonStyle}"
+            Background="DarkRed"
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Width="100"
+            Height="100"
+            Content="刹车"
+            FontSize="35" 
+            Margin="561,125,0,0" 
+            VerticalAlignment="Top" Click="Button_Click_2"
+          />
+        <Button x:Name="serial_port_btn"
+            Style="{StaticResource AccentButtonStyle}"
+            Grid.Row="1"
+            Grid.Column="1"
+            Background="DarkTurquoise"
+            Width="180"
+            Height="60"
+            Margin="46,49,0,0"
+            Content="开启串口"
+            FontSize="35" 
+            VerticalAlignment="Top" Click="serial_port_btn_Click"
           />
 
 
