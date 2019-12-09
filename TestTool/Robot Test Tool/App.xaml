@@ -1,0 +1,7 @@
+﻿<Application
+    x:Class="Robot_Test_Tool.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Robot_Test_Tool">
+
+</Application>
