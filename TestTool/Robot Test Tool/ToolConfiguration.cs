@@ -12,8 +12,8 @@ namespace Robot_Test_Tool
 
         List<Scenario> scenarios = new List<Scenario>
         {
-            new Scenario(){Title="Robot Control",ClassType=typeof(Scenario1) },
-            new Scenario(){Title="Serial Port Tool",ClassType=typeof(Scenario2) },
+            new Scenario(){Title="机器人控制",ClassType=typeof(Scenario1) },
+            new Scenario(){Title="串口工具",ClassType=typeof(Scenario2) },
             new Scenario(){Title="关于",ClassType=typeof(Scenario3)}
 
          };

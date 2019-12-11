@@ -32,7 +32,7 @@
                                        Margin="10,15,0,10"/>
                     <ComboBox x:ConnectionId='9' x:Name="PortNameComboBox"
                                          ItemsSource="{Binding Source={StaticResource DeviceListSource}}"
-                                         Width="100"
+                                         Width="130"
                                          Margin="0,10,10,10"
                                          SelectionChangedTrigger="Always"
                                                                                              
@@ -48,9 +48,9 @@
                     <ComboBox x:ConnectionId='8' x:Name="BaudRateComboBox"
                                                                                             
                                         
-                                        Width="100"
+                                        Width="130"
                                         Margin="0,10,10,10">
-                        <ComboBoxItem>300</ComboBoxItem>
+                        <!--<ComboBoxItem>300</ComboBoxItem>
                         <ComboBoxItem>600</ComboBoxItem>
                         <ComboBoxItem>1200</ComboBoxItem>
                         <ComboBoxItem>2400</ComboBoxItem>
@@ -62,14 +62,14 @@
                         <ComboBoxItem>43000</ComboBoxItem>
                         <ComboBoxItem>56000</ComboBoxItem>
                         <ComboBoxItem>57600</ComboBoxItem>
-                        <ComboBoxItem>115200</ComboBoxItem>
+                        <ComboBoxItem>115200</ComboBoxItem>-->
                     </ComboBox>
                 </StackPanel>
                 <ToggleButton x:ConnectionId='6' x:Name="SerialConnectBtn"
                                                                        
                                          Content="打开从串口"
                                          Margin="10,0,0,0"
-                                         Width="160"
+                                         Width="180"
                                          Style="{StaticResource ToggleButtonRevealStyle}"
                                          HorizontalAlignment="Left"/>
                 <!--<Button x:Name="SendMsg"

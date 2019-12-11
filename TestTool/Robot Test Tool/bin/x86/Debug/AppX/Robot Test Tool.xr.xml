@@ -120,15 +120,10 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Width" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Items" />
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="SelectionChangedTrigger" />
       <RootEvent Name="SelectionChanged" />
       <RootEvent Name="DropDownOpened" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
-      <RootProperty Name="Content" />
-      <RootProperty Name="IsSelected" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Source" />

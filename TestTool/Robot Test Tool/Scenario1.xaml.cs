@@ -1,23 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Robot_Test_Tool.SerialData;
-using System.IO.Ports;
 using Windows.Devices.Enumeration;
 using Windows.Devices.SerialCommunication;
 using System.Collections.ObjectModel;
 using Windows.Storage.Streams;
+using System.Threading;
 using System.Threading.Tasks;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
@@ -29,9 +18,6 @@ namespace Robot_Test_Tool
     /// </summary>
     public sealed partial class Scenario1 : Page
     {
-      //Serial serial = new Serial();
-        static SerialPort port;
-        private string selectedPortName;
 
         private SerialDevice serialPort = null;
         DataWriter dataWriteObject = null;
@@ -39,23 +25,15 @@ namespace Robot_Test_Tool
         private List<string> AllPortName = new List<string>();
         private Dictionary<string, object> serialPortDeviceDic = new Dictionary<string, object>();
 
+        UInt32[] baudRate = { 9600, 19200, 38400, 57600, 115200 };
+
         private string message;
         public Scenario1()
         {
             this.InitializeComponent();
             listOfDevice = new ObservableCollection<DeviceInformation>();
-            
-
             ListAvailablePorts();
-
-            // serial.SerialList();
-            //if (serial.AllPortName != null)
-            //{
-            //    foreach (string name in serial.AllPortName)
-            //    {
-            //        PortNameComboBox.Items.Add(name);
-            //    }
-            //}
+            InitComboxItem();
         }
 
 
@@ -72,12 +50,10 @@ namespace Robot_Test_Tool
                     AllPortName.Add(dis[i].Name);
                     serialPortDeviceDic.Add(dis[i].Name, dis[i]);
                 }
-                //SerialPortListSource.Source = AllPortName;
-                DeviceListSource.Source = AllPortName;
-                var str = AllPortName[0];
-                // testText.Text = serialPortDeviceDic[str].ToString();
-                //testText.Text = listOfDevice[0].ToString();
 
+                DeviceListSource.Source = AllPortName;
+                //PortNameComboBox.SelectedItem = null;
+                //TipText.Text = "";
             }
             catch (Exception ex)
             {
@@ -86,9 +62,69 @@ namespace Robot_Test_Tool
             }
         }
 
+
+        /// <summary>
+        /// 打开串口按钮点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void SerialConnectBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            var selection = serialPortDeviceDic[PortNameComboBox.SelectedItem.ToString()];
+            if (selection == null)
+            {
+                TipText.Text = "请选择串口号并连接";
+                return;
+            }
+            else if (BaudRateComboBox.SelectedItem == null)
+            {
+                Msgbox.Show("请选择波特率!");
+                SerialConnectBtn.IsEnabled = false;
+                return;
+            }
+
+            DeviceInformation entry = (DeviceInformation)selection;
+            try
+            {
+                serialPort = await SerialDevice.FromIdAsync(entry.Id);
+                if (serialPort == null) return;
+
+                // Configure serial settings
+                serialPort.WriteTimeout = TimeSpan.FromMilliseconds(1000);
+                serialPort.ReadTimeout = TimeSpan.FromMilliseconds(1000);
+                serialPort.BaudRate = baudRate[BaudRateComboBox.SelectedIndex];
+                //serialPort.BaudRate = (uint)BaudRateComboBox.SelectedValue;
+                serialPort.Parity = SerialParity.None;
+                serialPort.StopBits = SerialStopBitCount.One;
+                serialPort.DataBits = 8;
+                serialPort.Handshake = SerialHandshake.None;
+
+                TipText.Text = PortNameComboBox.SelectedItem.ToString() + "已打开";
+            }
+            catch (Exception ex)
+            {
+                Msgbox.Show(ex.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// 初始化波特率下拉的选择内容
+        /// </summary>
+        private void InitComboxItem()
+        {
+            foreach (int i in baudRate)
+            {
+                BaudRateComboBox.Items.Add(i);
+            }
+        }
+
+
         private void PortNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //BText.Text = PortNameComboBox.SelectedItem.ToString() + "串口被选择";
+            TipText.Text = PortNameComboBox.SelectedItem.ToString() + "已选择";
         }
 
         private void PortNameComboBox_DropDownOpened(object sender, object e)
@@ -116,51 +152,7 @@ namespace Robot_Test_Tool
             //}
         }
 
-        /// <summary>
-        /// 打开串口按钮点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void SerialConnectBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //selectedPortName = PortNameComboBox.SelectedItem.ToString();
 
-            //if (port == null)
-
-            //    port = new SerialPort("COM3",115200);
-            //    port.Open();
-
-            var selection = serialPortDeviceDic[PortNameComboBox.SelectedItem.ToString()];
-            //BText.Text = selection.ToString();
-            if (selection == null)
-            {
-                TipText.Text = "请选择串口号";
-                return;
-            }
-
-            DeviceInformation entry = (DeviceInformation)selection;
-            try
-            {
-                serialPort = await SerialDevice.FromIdAsync(entry.Id);
-                if (serialPort == null) return;
-
-                // Configure serial settings
-                serialPort.WriteTimeout = TimeSpan.FromMilliseconds(1000);
-                serialPort.ReadTimeout = TimeSpan.FromMilliseconds(1000);
-                serialPort.BaudRate = 115200;
-                serialPort.Parity = SerialParity.None;
-                serialPort.StopBits = SerialStopBitCount.One;
-                serialPort.DataBits = 8;
-                serialPort.Handshake = SerialHandshake.None;
-
-                TipText.Text =PortNameComboBox.SelectedItem.ToString() + "已打开";
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-        }
 
         private async void SendMsg_Click(object sender, RoutedEventArgs e)
         {
@@ -187,7 +179,7 @@ namespace Robot_Test_Tool
         {
             //throw new NotImplementedException();
             Task<UInt32> storeAsyncTask;
-            
+
             dataWriteObject.WriteString(message);
             storeAsyncTask = dataWriteObject.StoreAsync().AsTask();
             UInt32 bytesWritten = await storeAsyncTask;
@@ -197,6 +189,9 @@ namespace Robot_Test_Tool
         {
             //BText.Text = BaudRateComboBox.Text;
             //BText.Text = BaudRateComboBox.SelectedItem.ToString();
+            SerialConnectBtn.IsEnabled = true;
+            SerialConnectBtn.IsChecked = false;
+            TipText.Text = BaudRateComboBox.SelectedItem.ToString() + " 波特率已选择";
         }
 
         private async void ForwardBtn_Click(object sender, RoutedEventArgs e)
