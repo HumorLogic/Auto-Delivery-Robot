@@ -23,21 +23,53 @@ namespace Robot_Test_Tool
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        static SerialPort port;
+        
+        public static MainPage Current;
         public MainPage()
         {
             this.InitializeComponent();
-            if (port == null)
+            //if (port == null)
+            //{
+            //    port = new SerialPort("COM3", 115200);
+            //    port.Open();
+            //    serial_port_btn.Content = "串口开启";
+            //}
+
+            Current = this;
+            TitleName.Text = APP_NAME;
+
+
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // Populate the scenario list from the SampleConfiguration.cs file
+            var itemCollection = new List<Scenario>();
+            int i = 1;
+            foreach (Scenario s in scenarios)
             {
-                port = new SerialPort("COM3", 115200);
-                port.Open();
-                serial_port_btn.Content = "串口开启";
+                // itemCollection.Add(new Scenario { Title = $"{i++}) {s.Title}", ClassType = s.ClassType });
+                itemCollection.Add(new Scenario { Title = $" {s.Title}", ClassType = s.ClassType });
+            }
+            ScenarioControl.ItemsSource = itemCollection;
+
+            if (Window.Current.Bounds.Width < 640)
+            {
+                ScenarioControl.SelectedIndex = -1;
+            }
+            else
+            {
+                ScenarioControl.SelectedIndex = 0;
             }
         }
 
+        public List<Scenario> Scenarios
+        {
+            get { return this.scenarios; }
+        }
         private void PortWrite(string msg)
         {
-            port.Write(msg);
+            //port.Write(msg);
         }
 
         //刹车按钮事件
@@ -67,6 +99,44 @@ namespace Robot_Test_Tool
 
         }
 
-      
+        /// <summary>
+        /// Called whenever the user changes selection in the scenarios list.  This method will navigate to the respective
+        /// sample scenario page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ScenarioControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           //Clear the status block when navigating scenarios.
+           //NotifyUser(String.Empty, NotifyType.StatusMessage);
+
+            ListBox scenarioListBox = sender as ListBox;
+            Scenario s = scenarioListBox.SelectedItem as Scenario;
+            if (s != null)
+            {
+                ScenarioFrame.Navigate(s.ClassType);
+                if (Window.Current.Bounds.Width < 640)
+                {
+                    Splitter.IsPaneOpen = false;
+                }
+            }
+        }
+
+
+        
+
+        
+        public enum NotifyType
+        {
+            StatusMessage,
+            ErrorMessage
+        };
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Splitter.IsPaneOpen = !Splitter.IsPaneOpen;
+            Console.WriteLine("导航按钮点击");
+        }
     }
 }

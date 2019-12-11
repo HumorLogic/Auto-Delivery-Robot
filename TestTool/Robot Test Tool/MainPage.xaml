@@ -1,50 +1,52 @@
 ﻿<Page
     x:Class="Robot_Test_Tool.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Robot_Test_Tool"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <!--<RowDefinition Height="Auto"/>
+            --><!--<RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>--><!--
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="490*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="823*"/>
+            <ColumnDefinition Width="549*"/>
         </Grid.ColumnDefinitions>
 
         <TextBlock 
             Text="机器人运动控制" 
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="5"
              FontSize="40"
              FontFamily="Microsoft YaHei UI"
              Margin="30,20,20,10"
          />
         <TextBlock 
             Grid.Row="1"
-            Grid.Column="1"
-            Margin="50,100,50,50"
+            Grid.Column="3"
+            Margin="50,100,42,50"
             
           />
 
-        <!--控制按键部分 Control Button-->
-        <!--前进按钮 Forward-->
+        --><!--控制按键部分 Control Button-->
+        <!--前进按钮 Forward--><!--
         <Button
             x:Name="forward_btn"
             Style="{StaticResource AccentButtonStyle}"
             Grid.Row="2"
-            Grid.Column="1"
+            Grid.Column="3"
             Width="120"
             Height="60"
             Margin="230,74,0,0"
@@ -52,23 +54,23 @@
             FontSize="35" 
             VerticalAlignment="Top" Click="forward_btn_Click"
           />
-        <!--后退按钮 Backward-->
+        --><!--后退按钮 Backward--><!--
         <Button x:Name="back_btn"
             Style="{StaticResource AccentButtonStyle}"
             Grid.Row="2"
-            Grid.Column="1"
+            Grid.Column="3"
             Width="120"
             Height="60"
-            Margin="220,209,0,30"
+            Margin="220,209,0,0"
             Content="后退"
             FontSize="35" 
             VerticalAlignment="Top" Click="back_btn_Click"
           />
-        <!--左转按钮 Turn Left-->
+        --><!--左转按钮 Turn Left--><!--
         <Button
             Style="{StaticResource AccentButtonStyle}"
             Grid.Row="2"
-            Grid.Column="1"
+            Grid.Column="3"
             Width="120"
             Height="60"
             Content="左转"
@@ -76,11 +78,11 @@
             Margin="90,144,0,0" 
             VerticalAlignment="Top"
           />
-        <!--右转按钮 Turn Right-->
+        --><!--右转按钮 Turn Right--><!--
         <Button
             Style="{StaticResource AccentButtonStyle}"
             Grid.Row="2"
-            Grid.Column="1"
+            Grid.Column="3"
             Width="120"
             Height="60"
             Content="右转"
@@ -92,8 +94,7 @@
             Style="{StaticResource AccentButtonStyle}"
             Background="DarkRed"
             Grid.Row="2"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
+            Grid.Column="3"
             Width="100"
             Height="100"
             Content="刹车"
@@ -104,7 +105,7 @@
         <Button x:Name="serial_port_btn"
             Style="{StaticResource AccentButtonStyle}"
             Grid.Row="1"
-            Grid.Column="1"
+            Grid.Column="3"
             Background="DarkTurquoise"
             Width="180"
             Height="60"
@@ -113,7 +114,153 @@
             FontSize="35" 
             VerticalAlignment="Top" Click="serial_port_btn_Click"
           />
+        <Image 
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.RowSpan="2" 
+           x:Name="mobilebot_img"
+            Source="/Assets/DeliveryBot.png" 
+            Stretch="Fill"
+            Width="200"
+            Height="200"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="70,9,0,0" 
+            />
 
+    </Grid>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <SplitView x:Name="Splitter"
+                          IsPaneOpen="True"
+                          Grid.Row="1"
+                          DisplayMode="Inline">
+            <SplitView.Pane>
+                <RelativePanel Margin="10,0,0,0">
+                    <!--<TextBlock x:Name="TitleName"
+                                      Text="标题位置"
+                                       Style="{StaticResource BodyTextBlockStyle}"
+                                       TextWrapping="Wrap"
+                                        Margin="0,10,0,0"/>-->
+                   
+                        <Image x:Name="myLogo" 
+                         Stretch="Fill" 
+                         Source="Assets/toolicon.png" 
+                         Width="25"
+                          Height="25"
+                         Margin="0,10,2,0" AutomationProperties.AccessibilityView="Raw" />
+                        <TextBlock x:Name="TitleName" 
+                              Text="移动机器人测试工具" 
+                              Style="{StaticResource   BaseTextBlockStyle}" 
+                              Margin="30,12,0,0" />
+                   
+                   
 
+                    <ListBox x:Name="ScenarioControl"
+                                    SelectionChanged="ScenarioControl_SelectionChanged"
+                                    AutomationProperties.Name="Scenarios"
+                                    SelectionMode="Single"
+                                    HorizontalAlignment="Left"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    VerticalAlignment="Top"
+                                    RelativePanel.Below="TitleName"
+                                    Margin="0,10,0,0"
+                                    RelativePanel.Above="FooterPanel">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="local:Scenario">
+                                <TextBlock Text="{x:Bind Title}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        
+                    </ListBox>
+                    <!--<Button Content="Go To Page 1"
+                                      Background="Gray"/>-->
+                    
+                    <StackPanel x:Name="FooterPanel"
+                                        RelativePanel.AlignBottomWithPanel="True"
+                                        Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal"
+                                             Margin="0,0,0,10">
+                            <Image x:Name="logoImage"
+                                     Source="Assets/LOGO2.png"
+                                     Height="25"
+                                     Width="25"
+                                     AutomationProperties.Name="www.humorlogic.com"
+                                     Stretch="Fill"
+                                     HorizontalAlignment="Left"
+                                     Margin="0,0,0,0"/>
+                        <TextBlock x:Name="Slogan"
+                                            Text="AI Tech"
+                                            FontSize="12"
+                                            Style="{StaticResource  SubtitleTextBlockStyle}"
+                                            RelativePanel.Above ="LinksPanel"
+                                            Margin="3,6,0,0"
+                                            TextWrapping="Wrap" FontFamily="Ink Free" FontWeight="Bold" FontStyle="Normal"/>
+                    </StackPanel>
+                    <!--<StackPanel x:Name="LinksPanel"
+                                         RelativePanel.AlignBottomWithPanel="True"
+                                         Orientation="Horizontal"
+                                         Margin="10,0,0,0" Height="27">
+                            <HyperlinkButton x:Name="WebsiteLink"
+                                                     Content="site"
+                                                      FontSize="15"
+                                                      Tag="www.humorlogic.com"
+                                                      Style="{StaticResource TextBlockButtonStyle}"
+                                                      Height="36"/>
+                        </StackPanel>-->
+                    </StackPanel>
+                </RelativePanel>
+            </SplitView.Pane>
+
+            <RelativePanel>
+                <Frame x:Name="ScenarioFrame"
+                             Margin="5"
+                             RelativePanel.AlignTopWithPanel="True"
+                             RelativePanel.Above=""
+                             RelativePanel.AlignRightWithPanel="True"
+                              RelativePanel.AlignLeftWithPanel="True"/>
+            </RelativePanel>
+        </SplitView>
+        
+        <!--顶部 和导航UI部分-->
+        <StackPanel x:Name="HeaderPanel"
+                            Orientation="Horizontal">
+            <Border Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
+                          Grid.Row="0">
+                <ToggleButton Style="{StaticResource ToggleButtonRevealStyle}"
+                                         Click="Button_Click"
+                                          VerticalAlignment="Top"
+                                          Foreground="{ThemeResource ApplicationForegroundThemeBrush}">
+                    <ToggleButton.Content>
+                        <FontIcon x:Name="Hamburger"
+                                        FontFamily="Segoe MDL2 Assets"
+                                        Glyph="&#xE700;"
+                                        Margin="0,5,0,0"/>
+                    </ToggleButton.Content>
+
+                </ToggleButton>
+            </Border>
+            <!--<Image x:Name="myLogo" 
+                         Stretch="Fill" 
+                         Source="Assets/toolicon.png" 
+                         Width="25"
+                          Height="25"
+                         Margin="5,5,2,0" AutomationProperties.AccessibilityView="Raw" />
+            <TextBlock x:Name="Header" 
+                              Text="移动机器人测试工具" 
+                              Style="{StaticResource   BaseTextBlockStyle}" 
+                              Margin="0,12,0,0" />-->
+            
+            
+        </StackPanel>
+        
     </Grid>
+    
+    
+    
+    
 </Page>
