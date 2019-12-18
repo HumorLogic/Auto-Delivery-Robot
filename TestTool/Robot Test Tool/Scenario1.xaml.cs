@@ -39,7 +39,7 @@ namespace Robot_Test_Tool
 
         private ObservableCollection<DeviceInformation> listOfDevice;
         private List<string> AllPortName = new List<string>();
-        private Dictionary<string, object> serialPortDeviceDic = new Dictionary<string, object>();
+        private Dictionary<string, string> serialPortDeviceDic = new Dictionary<string, string>();
         private string message;
         public List<SerialPortSettingsModel> BaudRate { get; private set; }
         UInt32[] baudRate = { 9600, 19200, 38400, 57600, 115200 };
@@ -77,7 +77,7 @@ namespace Robot_Test_Tool
                 {
                     listOfDevice.Add(dis[i]);
                     AllPortName.Add(dis[i].Name);
-                    serialPortDeviceDic.Add(dis[i].Name, dis[i]);
+                    serialPortDeviceDic.Add(dis[i].Name, dis[i].Id);
                 }
 
                 DeviceListSource.Source = AllPortName;
@@ -215,8 +215,8 @@ namespace Robot_Test_Tool
         /// <param name="e"></param>
         private async void SerialConnectBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            var selection = serialPortDeviceDic[PortNameComboBox.SelectedItem.ToString()];
+           string selection = serialPortDeviceDic[PortNameComboBox.SelectedItem.ToString()];
+            //var selection = serialPortDeviceDic[PortNameComboBox.SelectedItem.ToString()];
             if (selection == null)
             {
                 TipText.Text = "请选择串口号并连接";
@@ -229,10 +229,12 @@ namespace Robot_Test_Tool
                 return;
             }
 
-            DeviceInformation entry = (DeviceInformation)selection;
+         //   DeviceInformation entry = (DeviceInformation)selection;
             try
             {
-                serialPort = await SerialDevice.FromIdAsync(entry.Id);
+                // serialPort = await SerialDevice.FromIdAsync(entry.Id);
+
+                serialPort = await SerialDevice.FromIdAsync(selection);
                 if (serialPort == null) return;
 
                 // Configure serial settings
