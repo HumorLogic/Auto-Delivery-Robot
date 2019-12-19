@@ -1,8 +1,12 @@
-﻿# region Include
+﻿///Author: Humor Logic
+///www.humorlogic.com
+
+# region Include
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Core;
 
 using Windows.Devices.Enumeration;
 using Windows.Devices.SerialCommunication;
@@ -14,8 +18,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Robot_Test_Tool.Model;
 using System.Diagnostics;
-
-// https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
 #endregion
 
@@ -44,6 +46,8 @@ namespace Robot_Test_Tool
         public List<SerialPortSettingsModel> BaudRate { get; private set; }
         UInt32[] baudRate = { 9600, 19200, 38400, 57600, 115200 };
 
+        private MainPage rootPage = MainPage.Current;
+
         #endregion
 
         #region Constructor
@@ -54,12 +58,13 @@ namespace Robot_Test_Tool
             mapDeviceWatchersToDeviceSelector = new Dictionary<DeviceWatcher, string>();
             watcherStarted = false;
             isAllDevicesEnumerated = false;
-
+            DeviceListSource.Source = AllPortName;
 
             listOfDevice = new ObservableCollection<DeviceInformation>();
-            ListAvailablePorts();
-            InitComboxItem();
             InitializeDeviceWatcher();
+            //ListAvailablePorts();
+            InitComboxItem();
+           // InitializeDeviceWatcher();
             StartDeviceWatchers();
         }
 
@@ -89,6 +94,24 @@ namespace Robot_Test_Tool
                 Console.WriteLine("List AvailablePorts Failed");
                 Console.WriteLine(ex);
             }
+        }
+
+        /// <summary>
+        /// Update Available Serial Port to UI List
+        /// 更新可选的串口到UI列表中
+        /// </summary>
+        /// <param name="deviceInfo">DeviceInformation Type</param>
+        public void UpdateAvailablePorts(DeviceInformation deviceInfo)
+        {
+           // DeviceListSource.Source = AllPortName;
+            if (!AllPortName.Contains(deviceInfo.Name))
+            {
+                AllPortName.Add(deviceInfo.Name);
+                serialPortDeviceDic.Add(deviceInfo.Name, deviceInfo.Id);
+            }
+            else return;
+           
+            //DeviceListSource.Source = AllPortName;
         }
 
         /// <summary>
@@ -123,6 +146,7 @@ namespace Robot_Test_Tool
         private void InitializeDeviceWatcher()
         {
             // var deviceSelector = SerialDevice.GetDeviceSelector();
+            aqs = SerialDevice.GetDeviceSelector();
             deviceWatcher = DeviceInformation.CreateWatcher(aqs);
             AddDeviceWatcher(deviceWatcher, aqs);
         }
@@ -136,10 +160,20 @@ namespace Robot_Test_Tool
             // mapDeviceWatchersToDeviceSelector.Add(deviceWatcher, deviceSelector);
         }
 
-        private void OnDeviceAdded(DeviceWatcher sender, DeviceInformation args)
+        private async void OnDeviceAdded(DeviceWatcher sender, DeviceInformation args)
         {
             //TipText.Text = args.Name + "加入";
             Debug.WriteLine(args.Name + " Serial Port Added");
+            
+            await rootPage.Dispatcher.RunAsync(
+            CoreDispatcherPriority.Normal,
+            new DispatchedHandler(() =>
+            {
+                UpdateAvailablePorts(args);
+            }));
+
+
+
             //try
             //{
             //    TipText.Text = args.Name + "加入";
