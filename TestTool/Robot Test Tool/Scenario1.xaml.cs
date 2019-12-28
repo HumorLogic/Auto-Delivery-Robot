@@ -34,12 +34,13 @@ namespace Robot_Test_Tool
         private string aqs = null;
         private DeviceWatcher deviceWatcher;
         DataWriter dataWriteObject = null;
+        private string selectPortName;
 
         private Dictionary<DeviceWatcher, String> mapDeviceWatchersToDeviceSelector;
         private Boolean watcherStarted;
         private Boolean isAllDevicesEnumerated;
 
-        private ObservableCollection<DeviceInformation> listOfDevice;
+        private ObservableCollection<DeviceListEntry> listOfDevice;
         private List<string> AllPortName = new List<string>();
         private Dictionary<string, string> serialPortDeviceDic = new Dictionary<string, string>();
         private string message;
@@ -58,9 +59,11 @@ namespace Robot_Test_Tool
             mapDeviceWatchersToDeviceSelector = new Dictionary<DeviceWatcher, string>();
             watcherStarted = false;
             isAllDevicesEnumerated = false;
-            DeviceListSource.Source = AllPortName;
+            //  DeviceListSource.Source = AllPortName;
+           
 
-            listOfDevice = new ObservableCollection<DeviceInformation>();
+            listOfDevice = new ObservableCollection<DeviceListEntry>();
+            DeviceListSource.Source = listOfDevice;
             InitializeDeviceWatcher();
             //ListAvailablePorts();
             InitComboxItem();
@@ -80,7 +83,7 @@ namespace Robot_Test_Tool
 
                 for (int i = 0; i < dis.Count; i++)
                 {
-                    listOfDevice.Add(dis[i]);
+                    //listOfDevice.Add(dis[i]);
                     AllPortName.Add(dis[i].Name);
                     serialPortDeviceDic.Add(dis[i].Name, dis[i].Id);
                 }
@@ -112,6 +115,32 @@ namespace Robot_Test_Tool
             else return;
            
             //DeviceListSource.Source = AllPortName;
+        }
+
+        private void AddDeviceToList(DeviceInformation deviceInformation, string deviceSelector)
+        {
+            var match = FindDevice(deviceInformation.Id);
+            if(match == null)
+            {
+                match = new DeviceListEntry(deviceInformation, deviceSelector);
+                listOfDevice.Add(match);
+                serialPortDeviceDic[deviceInformation.Name] = deviceInformation.Id;
+            }
+        }
+
+        private DeviceListEntry FindDevice(string deviceID)
+        {
+            if(deviceID != null)
+            {
+                foreach (DeviceListEntry entry in listOfDevice)
+                {
+                    if(entry.DeviceInformation.Id == deviceID)
+                    {
+                        return entry;
+                    }
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -169,20 +198,9 @@ namespace Robot_Test_Tool
             CoreDispatcherPriority.Normal,
             new DispatchedHandler(() =>
             {
-                UpdateAvailablePorts(args);
+               // UpdateAvailablePorts(args);
+                AddDeviceToList(args,aqs);
             }));
-
-
-
-            //try
-            //{
-            //    TipText.Text = args.Name + "加入";
-            //}
-            //catch (Exception ex)
-            //{
-            //    Debug.WriteLine(ex.Message);
-            //}
-
 
         }
 
@@ -249,7 +267,7 @@ namespace Robot_Test_Tool
         /// <param name="e"></param>
         private async void SerialConnectBtn_Click(object sender, RoutedEventArgs e)
         {
-           string selection = serialPortDeviceDic[PortNameComboBox.SelectedItem.ToString()];
+           string selection = serialPortDeviceDic[selectPortName];
             //var selection = serialPortDeviceDic[PortNameComboBox.SelectedItem.ToString()];
             if (selection == null)
             {
@@ -281,7 +299,7 @@ namespace Robot_Test_Tool
                 serialPort.DataBits = 8;
                 serialPort.Handshake = SerialHandshake.None;
 
-                TipText.Text = PortNameComboBox.SelectedItem.ToString() + "已打开";
+                TipText.Text = selectPortName + "已打开";
             }
             catch (Exception ex)
             {
@@ -293,7 +311,10 @@ namespace Robot_Test_Tool
         private void PortNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //BText.Text = PortNameComboBox.SelectedItem.ToString() + "串口被选择";
-            TipText.Text = PortNameComboBox.SelectedItem.ToString() + "已选择";
+            var selection = PortNameComboBox.SelectedItem;
+            DeviceListEntry entry = (DeviceListEntry)selection;
+            TipText.Text = entry.InstancePortName+ "已选择";
+            selectPortName = entry.InstancePortName;
         }
 
         private void PortNameComboBox_DropDownOpened(object sender, object e)

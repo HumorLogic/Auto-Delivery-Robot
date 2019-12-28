@@ -28,16 +28,8 @@ namespace Robot_Test_Tool
         public MainPage()
         {
             this.InitializeComponent();
-            //if (port == null)
-            //{
-            //    port = new SerialPort("COM3", 115200);
-            //    port.Open();
-            //    serial_port_btn.Content = "串口开启";
-            //}
-
             Current = this;
             TitleName.Text = APP_NAME;
-
 
         }
 

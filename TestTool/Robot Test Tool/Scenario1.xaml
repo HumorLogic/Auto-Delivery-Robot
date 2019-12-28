@@ -37,6 +37,11 @@
                                          SelectionChangedTrigger="Always"
                                          SelectionChanged="PortNameComboBox_SelectionChanged"
                                          DropDownOpened="PortNameComboBox_DropDownOpened">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding InstancePortName}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
                        
 
                     </ComboBox>
