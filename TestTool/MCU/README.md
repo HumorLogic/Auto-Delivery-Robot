@@ -9,8 +9,10 @@ I use a nRF24L01 module for PC to communicate with MCU.
 
 ### Arduino Uno 
 The script is used to test one motor
+
 ### Arduino Mega
 <img src="images/mega2560.jpg" width="300"/>
-The script is used to test four motor
+The script is used to test four motor  
+
 ### STM32
 The project will use stm32 board as MCU at a later stage.
