@@ -25,8 +25,20 @@
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\DeliveryBot.png">
+      <PackagePath>Assets\DeliveryBot.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\LOGO2.png">
+      <PackagePath>Assets\LOGO2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\LogoIcon.jpg">
+      <PackagePath>Assets\LogoIcon.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\roboticon.png">
+      <PackagePath>Assets\roboticon.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -47,6 +59,9 @@
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\toolicon.png">
+      <PackagePath>Assets\toolicon.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>

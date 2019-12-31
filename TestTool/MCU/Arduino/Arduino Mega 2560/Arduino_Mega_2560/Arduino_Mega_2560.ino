@@ -29,6 +29,7 @@ int motorState = 3;
 void setup()
 {
     Serial1.begin(115200);
+   // Serial.begin(9600);
     pinMode(LedPin, OUTPUT);
 
     pinMode(motorA_IN3_pin, OUTPUT);
@@ -51,36 +52,48 @@ void setup()
 
 void loop()
 {
-    char receiveVal;
+    //char receiveVal;
+    int receiveSpeed;
 
     if (Serial1.available() > 0)
     {
-        receiveVal = Serial1.read();
+        //receiveValr = Serial1.read();
+//        receiveSpeed = Serial1.read();
+//        if(Serial.available()){
+//          Serial.println(receiveSpeed);
+//          }
+         receiveSpeed = Serial1.read();
+         motor_forward_test(receiveSpeed);
+         //Serial.println(receiveSpeed);
+        
+        //motor_forward_test(receiveVal);
 
-        if (receiveVal == '1')
-        {
-            ledState = 1;
-            motorState = 1;
-        }
-        else if (receiveVal == '2')
-        {
-            ledState = 0;
-            motorState = 2;
-        }
-        else if (receiveVal == '0')
-        {
-            motorState = 0;
-        }
+
+        // if (receiveVal == '1')
+        // {
+        //     ledState = 1;
+        //     motorState = 1;
+        // }
+        // else if (receiveVal == '2')
+        // {
+        //     ledState = 0;
+        //     motorState = 2;
+        // }
+        // else if (receiveVal == '0')
+        // {
+        //     motorState = 0;
+        // }
 
         //    else
         //       ledState = 0;
     }
 
     digitalWrite(LedPin, ledState);
-    drive_motor(motorState);
+   
+    
     
 
-    //delay(50);
+    delay(10);
 }
 
 void drive_motor(int state)
@@ -95,6 +108,25 @@ void drive_motor(int state)
         motor_neutral(); 
 }
 
+
+void motor_forward_test(int speed)
+{
+    digitalWrite(motorC_IN3_pin, HIGH);
+    digitalWrite(motorC_IN4_pin, LOW);
+    analogWrite(motorC_PWM_pin, speed);
+
+    digitalWrite(motorD_IN1_pin, HIGH);
+    digitalWrite(motorD_IN2_pin, LOW);
+    analogWrite(motorD_PWM_pin, speed);
+
+    digitalWrite(motorA_IN3_pin, HIGH);
+    digitalWrite(motorA_IN4_pin, LOW);
+    analogWrite(motorA_PWM_pin, speed);
+
+    digitalWrite(motorB_IN1_pin, HIGH);
+    digitalWrite(motorB_IN2_pin, LOW);
+    analogWrite(motorB_PWM_pin, speed);
+}
 
 //电机向前
 void motor_forward()

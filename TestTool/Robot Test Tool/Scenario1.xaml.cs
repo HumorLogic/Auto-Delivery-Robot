@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Core;
+using Windows.UI.Xaml.Input;
+using System.Numerics;
 
 using Windows.Devices.Enumeration;
 using Windows.Devices.SerialCommunication;
@@ -36,7 +38,6 @@ namespace Robot_Test_Tool
         DataWriter dataWriteObject = null;
         private string selectPortName;
 
-        private Dictionary<DeviceWatcher, String> mapDeviceWatchersToDeviceSelector;
         private Boolean watcherStarted;
         private Boolean isAllDevicesEnumerated;
 
@@ -45,7 +46,13 @@ namespace Robot_Test_Tool
         private Dictionary<string, string> serialPortDeviceDic = new Dictionary<string, string>();
         private string message;
         public List<SerialPortSettingsModel> BaudRate { get; private set; }
-        UInt32[] baudRate = { 9600, 19200, 38400, 57600, 115200 };
+
+        private double controllerAeraRadius = 75d;
+        private double controllerRadius = 25d;
+        private bool controllerPressed = false;
+
+        private int leftMotorSpeed, rightMotorSpeed;
+        private Vector2 controllerInitPos;
 
         private MainPage rootPage = MainPage.Current;
 
@@ -56,24 +63,31 @@ namespace Robot_Test_Tool
         {
             this.InitializeComponent();
 
-            mapDeviceWatchersToDeviceSelector = new Dictionary<DeviceWatcher, string>();
             watcherStarted = false;
             isAllDevicesEnumerated = false;
-            //  DeviceListSource.Source = AllPortName;
-           
 
             listOfDevice = new ObservableCollection<DeviceListEntry>();
             DeviceListSource.Source = listOfDevice;
             InitializeDeviceWatcher();
-            //ListAvailablePorts();
             InitComboxItem();
-           // InitializeDeviceWatcher();
             StartDeviceWatchers();
+
+            // ConfigureUIEvents();
+            Loaded += OnLoaded;
+            
         }
 
         #endregion
 
         #region Methods
+
+        private void OnLoaded(object sender, RoutedEventArgs args)
+        {
+            ConfigureUIEvents();
+
+        }
+
+        #region Serial Port Connect
         private async void ListAvailablePorts()
         {
             try
@@ -89,8 +103,6 @@ namespace Robot_Test_Tool
                 }
 
                 DeviceListSource.Source = AllPortName;
-                //PortNameComboBox.SelectedItem = null;
-                //TipText.Text = "";
             }
             catch (Exception ex)
             {
@@ -104,23 +116,10 @@ namespace Robot_Test_Tool
         /// 更新可选的串口到UI列表中
         /// </summary>
         /// <param name="deviceInfo">DeviceInformation Type</param>
-        public void UpdateAvailablePorts(DeviceInformation deviceInfo)
-        {
-           // DeviceListSource.Source = AllPortName;
-            if (!AllPortName.Contains(deviceInfo.Name))
-            {
-                AllPortName.Add(deviceInfo.Name);
-                serialPortDeviceDic.Add(deviceInfo.Name, deviceInfo.Id);
-            }
-            else return;
-           
-            //DeviceListSource.Source = AllPortName;
-        }
-
         private void AddDeviceToList(DeviceInformation deviceInformation, string deviceSelector)
         {
             var match = FindDevice(deviceInformation.Id);
-            if(match == null)
+            if (match == null)
             {
                 match = new DeviceListEntry(deviceInformation, deviceSelector);
                 listOfDevice.Add(match);
@@ -130,11 +129,11 @@ namespace Robot_Test_Tool
 
         private DeviceListEntry FindDevice(string deviceID)
         {
-            if(deviceID != null)
+            if (deviceID != null)
             {
                 foreach (DeviceListEntry entry in listOfDevice)
                 {
-                    if(entry.DeviceInformation.Id == deviceID)
+                    if (entry.DeviceInformation.Id == deviceID)
                     {
                         return entry;
                     }
@@ -158,13 +157,14 @@ namespace Robot_Test_Tool
             serialPortDeviceDic.Clear();
         }
 
-
         private async Task WriteAsync()
         {
             //throw new NotImplementedException();
             Task<UInt32> storeAsyncTask;
 
-            dataWriteObject.WriteString(message);
+            //  dataWriteObject.WriteString(message);
+            // dataWriteObject.WriteInt32(leftMotorSpeed);
+            dataWriteObject.WriteByte((byte)leftMotorSpeed);
             storeAsyncTask = dataWriteObject.StoreAsync().AsTask();
             UInt32 bytesWritten = await storeAsyncTask;
         }
@@ -193,20 +193,20 @@ namespace Robot_Test_Tool
         {
             //TipText.Text = args.Name + "加入";
             Debug.WriteLine(args.Name + " Serial Port Added");
-            
+
             await rootPage.Dispatcher.RunAsync(
             CoreDispatcherPriority.Normal,
             new DispatchedHandler(() =>
             {
-               // UpdateAvailablePorts(args);
-                AddDeviceToList(args,aqs);
+                // UpdateAvailablePorts(args);
+                AddDeviceToList(args, aqs);
             }));
 
         }
 
         private void OnDeviceEnumerationComplete(DeviceWatcher sender, object args)
         {
-            
+
             Debug.WriteLine("Device Enumeration Completed");
         }
 
@@ -237,6 +237,7 @@ namespace Robot_Test_Tool
             //}
         }
 
+        #endregion
 
         #region UI Event Method
 
@@ -267,7 +268,7 @@ namespace Robot_Test_Tool
         /// <param name="e"></param>
         private async void SerialConnectBtn_Click(object sender, RoutedEventArgs e)
         {
-           string selection = serialPortDeviceDic[selectPortName];
+            string selection = serialPortDeviceDic[selectPortName];
             //var selection = serialPortDeviceDic[PortNameComboBox.SelectedItem.ToString()];
             if (selection == null)
             {
@@ -281,7 +282,7 @@ namespace Robot_Test_Tool
                 return;
             }
 
-         //   DeviceInformation entry = (DeviceInformation)selection;
+            //   DeviceInformation entry = (DeviceInformation)selection;
             try
             {
                 // serialPort = await SerialDevice.FromIdAsync(entry.Id);
@@ -313,48 +314,19 @@ namespace Robot_Test_Tool
             //BText.Text = PortNameComboBox.SelectedItem.ToString() + "串口被选择";
             var selection = PortNameComboBox.SelectedItem;
             DeviceListEntry entry = (DeviceListEntry)selection;
-            TipText.Text = entry.InstancePortName+ "已选择";
+            TipText.Text = entry.InstancePortName + "已选择";
             selectPortName = entry.InstancePortName;
         }
 
         private void PortNameComboBox_DropDownOpened(object sender, object e)
         {
-            ////serial.SerialList();
-            //if (AllPortName.Count == 0)
-            //{
-            //    AllPortName.Clear();
-            //    PortNameComboBox.Items.Clear();
-            //}
-            //else
-            //{
-            //    foreach (string name in AllPortName)
-            //    {
 
-            //        if (PortNameComboBox.Items.Contains(name))
-            //        {
-            //            continue;
-            //        }
-            //        else
-            //        {
-            //            PortNameComboBox.Items.Add(name);
-            //        }
-            //    }
-            //}
-            //ListAvailablePorts();
 
         }
 
         private async void SendMsg_Click(object sender, RoutedEventArgs e)
         {
-            //port.Write("111");
-            //try
-            //{
 
-            //}catch(Exception ex)
-            //{
-
-            //}
-            //Msgbox.Show("请选择串口！");
             if (serialPort != null)
             {
                 // Create the DataWriter object and attach to OutputStream
@@ -414,10 +386,94 @@ namespace Robot_Test_Tool
             }
         }
 
+
+        #endregion
+
+        #region Joystick
+
+        private void ConfigureUIEvents()
+        {
+            Window.Current.Content.PointerMoved += OnPointerMoved;
+            Window.Current.Content.PointerReleased += OnPointerReleased;
+        }
+
+        private void OnPointerMoved(object sender, PointerRoutedEventArgs eventArgs)
+        {
+            Debug.WriteLine("pointer pressed moved");
+            if (!controllerPressed)
+                return;
+
+            double x = eventArgs.GetCurrentPoint(ControllerAera).Position.X - controllerAeraRadius;
+            double y = eventArgs.GetCurrentPoint(ControllerAera).Position.Y - controllerAeraRadius;
+            double side = Math.Sqrt(x * x + y * y);
+            double limitLength = controllerAeraRadius - controllerRadius;
+
+            if (side < limitLength)
+            {
+                JoystickTransform.X = x;
+                JoystickTransform.Y = y;
+
+              
+                if (y < 0)
+                {
+                    int speed = (int)(-y+1)*4 ;// I set the motor PWM under 200, the biggest of y is 50
+                    SetMotorSpeed(speed);
+                    MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed);
+                }
+            }
+            else
+            {
+                JoystickTransform.X = limitLength * (x / side); // cos(x)
+                JoystickTransform.Y = limitLength * (y / side);// sin(x)
+            }
+
+        }
+
+        private void OnPointerReleased(object sender, PointerRoutedEventArgs pointerRoutedEventArgs)
+        {
+            Debug.WriteLine("pointer realeased");
+            controllerPressed = false;
+            JoystickTransform.X = 0;
+            JoystickTransform.Y = 0;
+        }
+
+        private void Controller_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Debug.WriteLine("pointer pressed");
+            controllerPressed = true;
+        }
+
+
+        private void Controller_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            Debug.WriteLine("pointer released");
+            controllerPressed = false;
+            JoystickTransform.X = 0;
+            JoystickTransform.Y = 0;
+        }
+
         #endregion
 
 
+        #region Motor Control
+        private async void SetMotorSpeed(int speed)
+        {
+            leftMotorSpeed = speed;
+            if (serialPort != null)
+            {
+                // Create the DataWriter object and attach to OutputStream
+                dataWriteObject = new DataWriter(serialPort.OutputStream);
+
+                //Launch the WriteAsync task to perform the write
+                await WriteAsync();
+            }
+        }
         #endregion
+
+        #endregion
+
+
+
 
     }
 }

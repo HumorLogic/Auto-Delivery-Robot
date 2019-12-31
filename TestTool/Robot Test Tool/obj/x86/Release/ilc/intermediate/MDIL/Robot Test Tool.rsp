@@ -11,12 +11,8 @@
 /subsystem windows
 /emitStackTraceMetadata
 /in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Robot Test Tool.ilexe"
-/in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Microsoft.Win32.Primitives.ildll"
 /in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Robot Test Tool.McgInterop.ildll"
-/in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Collections.NonGeneric.ildll"
-/in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.ComponentModel.ildll"
-/in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.ComponentModel.Primitives.ildll"
-/in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.IO.Ports.ildll"
+/in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Console.ildll"
 /in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Numerics.Vectors.ildll"
 /in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Private.DeveloperExperience.AppX.ildll"
 /in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Private.Robot Test Tool.Generated.ildll"
@@ -28,8 +24,6 @@
 /in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Runtime.WindowsRuntime.ildll"
 /in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Runtime.WindowsRuntime.UI.Xaml.ildll"
 /in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Text.Encoding.CodePages.ildll"
-/in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Threading.Overlapped.ildll"
-/in "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Threading.Thread.ildll"
 /out "C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\MDIL\Robot Test Tool.mdilexe"
 /iltoc "C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.native.sharedlibrary\2.2.7-rel-27913-00\tools\SharedLibrary\ret\ILToc\System.Collections.iltoc*SharedLibrary"
 /iltoc "C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.native.sharedlibrary\2.2.7-rel-27913-00\tools\SharedLibrary\ret\ILToc\System.Collections.Concurrent.iltoc*SharedLibrary"

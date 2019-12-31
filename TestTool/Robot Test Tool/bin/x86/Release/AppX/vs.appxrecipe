@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\AppX</LayoutDir>
-    <RegisteredManifestChecksum>9342B6B6286A4358EFE11AA86B9600FB9A03EC14551273B7F0D3DB6539774D15</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>67F62B864D59275C7ACD1EF448818A4E0041D93B0BD2B0AC23C5288BFE5046E4</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>52aa5273-04f8-4d47-882b-04ee910f92c0_1.0.0.0_x86__p9cyyfahzs3tp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>52aa5273-04f8-4d47-882b-04ee910f92c0_p9cyyfahzs3tp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>52aa5273-04f8-4d47-882b-04ee910f92c0</RegisteredPackageID>
@@ -30,13 +30,29 @@
     <AppXManifest Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-12-09T05:35:44.922</Modified>
+      <Modified>2019-12-31T07:30:04.744</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\DeliveryBot.png">
+      <PackagePath>Assets\DeliveryBot.png</PackagePath>
+      <Modified>2019-12-09T13:30:03.886</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2019-12-09T00:19:39.332</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\LOGO2.png">
+      <PackagePath>Assets\LOGO2.png</PackagePath>
+      <Modified>2019-12-10T07:15:33.892</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\LogoIcon.jpg">
+      <PackagePath>Assets\LogoIcon.jpg</PackagePath>
+      <Modified>2019-12-10T07:09:12.340</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\roboticon.png">
+      <PackagePath>Assets\roboticon.png</PackagePath>
+      <Modified>2019-12-10T09:06:00.227</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -63,6 +79,10 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-12-09T00:19:39.332</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\toolicon.png">
+      <PackagePath>Assets\toolicon.png</PackagePath>
+      <Modified>2019-12-10T04:26:58.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -74,19 +94,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-12-09T05:35:32.175</Modified>
+      <Modified>2019-12-31T07:29:48.600</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Robot Test Tool.dll">
       <PackagePath>Robot Test Tool.dll</PackagePath>
-      <Modified>2019-12-09T05:35:44.792</Modified>
+      <Modified>2019-12-31T07:30:04.604</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Robot Test Tool.exe">
       <PackagePath>Robot Test Tool.exe</PackagePath>
-      <Modified>2019-12-09T05:35:44.912</Modified>
+      <Modified>2019-12-31T07:30:04.733</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Robot Test Tool.pdb">
       <PackagePath>Robot Test Tool.pdb</PackagePath>
-      <Modified>2019-12-09T05:35:44.910</Modified>
+      <Modified>2019-12-31T07:30:04.732</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

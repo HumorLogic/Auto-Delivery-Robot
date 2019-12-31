@@ -415,8 +415,6 @@ C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\o
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\BuildInfo\BuildInfo.res
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\BuildInfo\BuildInfo.txt
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\gkargs.rsp
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Microsoft.Win32.Primitives.ildll
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Microsoft.Win32.Primitives.ilpdb
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Robot Test Tool.closure.csv
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Robot Test Tool.csv
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Robot Test Tool.forwarders.csv
@@ -428,14 +426,6 @@ C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\o
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Robot Test Tool.metadata
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Robot Test Tool.reflectionlog.csv
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\Robot Test Tool.res
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Collections.NonGeneric.ildll
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Collections.NonGeneric.ilpdb
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.ComponentModel.ildll
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.ComponentModel.ilpdb
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.ComponentModel.Primitives.ildll
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.ComponentModel.Primitives.ilpdb
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.IO.Ports.ildll
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.IO.Ports.ilpdb
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Numerics.Vectors.ildll
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Numerics.Vectors.ilpdb
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Private.DeveloperExperience.AppX.ildll
@@ -458,10 +448,6 @@ C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\o
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Runtime.WindowsRuntime.UI.Xaml.ilpdb
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Text.Encoding.CodePages.ildll
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Text.Encoding.CodePages.ilpdb
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Threading.Overlapped.ildll
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Threading.Overlapped.ilpdb
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Threading.Thread.ildll
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Threading.Thread.ilpdb
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\MDIL\Robot Test Tool.mdilexe
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\MDIL\Robot Test Tool.mdilpdb
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\MDIL\Robot Test Tool.rsp
@@ -470,12 +456,6 @@ C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\o
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Native\Robot Test Tool.pdb
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\PreMergeILTransformed\Robot Test Tool.exe
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\PreMergeILTransformed\Robot Test Tool.pdb
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Collections.NonGeneric.0.rsrc
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Collections.NonGeneric.index.txt
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.ComponentModel.Primitives.0.rsrc
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.ComponentModel.Primitives.index.txt
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.IO.Ports.0.rsrc
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.IO.Ports.index.txt
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Numerics.Vectors.0.rsrc
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Numerics.Vectors.index.txt
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Private.DeveloperExperience.AppX.0.rsrc
@@ -488,10 +468,6 @@ C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\o
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Runtime.WindowsRuntime.index.txt
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Runtime.WindowsRuntime.UI.Xaml.0.rsrc
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Runtime.WindowsRuntime.UI.Xaml.index.txt
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Threading.Overlapped.0.rsrc
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Threading.Overlapped.index.txt
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Threading.Thread.0.rsrc
-C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Threading.Thread.index.txt
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\rhbindargs.Robot Test Tool.rsp
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Robot Test Tool.McgInterop.dll
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Robot Test Tool.McgInterop.pdb
@@ -506,3 +482,32 @@ C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\o
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Robot Test Tool.McgInterop\SharedStubs.g.cs
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\System.Private.Robot Test Tool.Generated.dll
 C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Robot Test Tool.csprojAssemblyReference.cache
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario1.g.i.cs
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario1.g.cs
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario2.g.i.cs
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario2.g.cs
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario3.g.i.cs
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario3.g.cs
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario1.xaml
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario2.xaml
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario3.xaml
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario1.xbf
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario2.xbf
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\Scenario3.xbf
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\Scenario1.xbf
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\Scenario2.xbf
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\Scenario3.xbf
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\DeliveryBot.png
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\LOGO2.png
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\LogoIcon.jpg
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\roboticon.png
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Release\ilc\Assets\toolicon.png
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\in\Assets\DeliveryBot.png
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\in\Assets\LOGO2.png
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\in\Assets\roboticon.png
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\in\Assets\toolicon.png
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\in\Assets\LogoIcon.jpg
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Console.ildll
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\ILTransformed\System.Console.ilpdb
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Console.0.rsrc
+C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\obj\x86\Release\ilc\intermediate\Resources\System.Console.index.txt

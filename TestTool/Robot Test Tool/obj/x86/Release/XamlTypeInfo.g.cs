@@ -199,15 +199,41 @@ namespace Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
+            _typeNameTable = new string[16];
             _typeNameTable[0] = "Robot_Test_Tool.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "System.Collections.Generic.List`1<Robot_Test_Tool.Scenario>";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "Robot_Test_Tool.Scenario";
+            _typeNameTable[6] = "String";
+            _typeNameTable[7] = "System.Type";
+            _typeNameTable[8] = "System.Reflection.MemberInfo";
+            _typeNameTable[9] = "Robot_Test_Tool.Scenario1";
+            _typeNameTable[10] = "System.Collections.Generic.List`1<Robot_Test_Tool.Model.SerialPortSettingsModel>";
+            _typeNameTable[11] = "Robot_Test_Tool.Model.SerialPortSettingsModel";
+            _typeNameTable[12] = "SingletonBase`1<Robot_Test_Tool.Model.SerialPortSettingsModel>";
+            _typeNameTable[13] = "UInt32";
+            _typeNameTable[14] = "Robot_Test_Tool.Scenario2";
+            _typeNameTable[15] = "Robot_Test_Tool.Scenario3";
 
-            _typeTable = new global::System.Type[3];
+            _typeTable = new global::System.Type[16];
             _typeTable[0] = typeof(global::Robot_Test_Tool.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::System.Collections.Generic.List<global::Robot_Test_Tool.Scenario>);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::Robot_Test_Tool.Scenario);
+            _typeTable[6] = typeof(global::System.String);
+            _typeTable[7] = typeof(global::System.Type);
+            _typeTable[8] = typeof(global::System.Reflection.MemberInfo);
+            _typeTable[9] = typeof(global::Robot_Test_Tool.Scenario1);
+            _typeTable[10] = typeof(global::System.Collections.Generic.List<global::Robot_Test_Tool.Model.SerialPortSettingsModel>);
+            _typeTable[11] = typeof(global::Robot_Test_Tool.Model.SerialPortSettingsModel);
+            _typeTable[12] = typeof(global::SingletonBase<global::Robot_Test_Tool.Model.SerialPortSettingsModel>);
+            _typeTable[13] = typeof(global::System.UInt32);
+            _typeTable[14] = typeof(global::Robot_Test_Tool.Scenario2);
+            _typeTable[15] = typeof(global::Robot_Test_Tool.Scenario3);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -243,6 +269,25 @@ namespace Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo
         }
 
         private object Activate_0_MainPage() { return new global::Robot_Test_Tool.MainPage(); }
+        private object Activate_3_List() { return new global::System.Collections.Generic.List<global::Robot_Test_Tool.Scenario>(); }
+        private object Activate_5_Scenario() { return new global::Robot_Test_Tool.Scenario(); }
+        private object Activate_9_Scenario1() { return new global::Robot_Test_Tool.Scenario1(); }
+        private object Activate_10_List() { return new global::System.Collections.Generic.List<global::Robot_Test_Tool.Model.SerialPortSettingsModel>(); }
+        private object Activate_11_SerialPortSettingsModel() { return new global::Robot_Test_Tool.Model.SerialPortSettingsModel(); }
+        private object Activate_14_Scenario2() { return new global::Robot_Test_Tool.Scenario2(); }
+        private object Activate_15_Scenario3() { return new global::Robot_Test_Tool.Scenario3(); }
+        private void VectorAdd_3_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Robot_Test_Tool.Scenario>)instance;
+            var newItem = (global::Robot_Test_Tool.Scenario)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_10_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Robot_Test_Tool.Model.SerialPortSettingsModel>)instance;
+            var newItem = (global::Robot_Test_Tool.Model.SerialPortSettingsModel)item;
+            collection.Add(newItem);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -257,6 +302,7 @@ namespace Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo
             case 0:   //  Robot_Test_Tool.MainPage
                 userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_MainPage;
+                userType.AddMemberName("Scenarios");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -268,16 +314,189 @@ namespace Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo
             case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
+
+            case 3:   //  System.Collections.Generic.List`1<Robot_Test_Tool.Scenario>
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_3_List;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Object
+                xamlType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  Robot_Test_Tool.Scenario
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_5_Scenario;
+                userType.AddMemberName("Title");
+                userType.AddMemberName("ClassType");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  String
+                xamlType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  System.Type
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Reflection.MemberInfo"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 8:   //  System.Reflection.MemberInfo
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 9:   //  Robot_Test_Tool.Scenario1
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_Scenario1;
+                userType.AddMemberName("BaudRate");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  System.Collections.Generic.List`1<Robot_Test_Tool.Model.SerialPortSettingsModel>
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_10_List;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 11:   //  Robot_Test_Tool.Model.SerialPortSettingsModel
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("SingletonBase`1<Robot_Test_Tool.Model.SerialPortSettingsModel>"));
+                userType.Activator = Activate_11_SerialPortSettingsModel;
+                userType.AddMemberName("BaudRateName");
+                userType.AddMemberName("BaudRateValue");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 12:   //  SingletonBase`1<Robot_Test_Tool.Model.SerialPortSettingsModel>
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  UInt32
+                xamlType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 14:   //  Robot_Test_Tool.Scenario2
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_14_Scenario2;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  Robot_Test_Tool.Scenario3
+                userType = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_Scenario3;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
             }
             return xamlType;
         }
 
 
+        private object get_0_MainPage_Scenarios(object instance)
+        {
+            var that = (global::Robot_Test_Tool.MainPage)instance;
+            return that.Scenarios;
+        }
+        private object get_1_Scenario_Title(object instance)
+        {
+            var that = (global::Robot_Test_Tool.Scenario)instance;
+            return that.Title;
+        }
+        private void set_1_Scenario_Title(object instance, object Value)
+        {
+            var that = (global::Robot_Test_Tool.Scenario)instance;
+            that.Title = (global::System.String)Value;
+        }
+        private object get_2_Scenario_ClassType(object instance)
+        {
+            var that = (global::Robot_Test_Tool.Scenario)instance;
+            return that.ClassType;
+        }
+        private void set_2_Scenario_ClassType(object instance, object Value)
+        {
+            var that = (global::Robot_Test_Tool.Scenario)instance;
+            that.ClassType = (global::System.Type)Value;
+        }
+        private object get_3_Scenario1_BaudRate(object instance)
+        {
+            var that = (global::Robot_Test_Tool.Scenario1)instance;
+            return that.BaudRate;
+        }
+        private object get_4_SerialPortSettingsModel_BaudRateName(object instance)
+        {
+            var that = (global::Robot_Test_Tool.Model.SerialPortSettingsModel)instance;
+            return that.BaudRateName;
+        }
+        private void set_4_SerialPortSettingsModel_BaudRateName(object instance, object Value)
+        {
+            var that = (global::Robot_Test_Tool.Model.SerialPortSettingsModel)instance;
+            that.BaudRateName = (global::System.String)Value;
+        }
+        private object get_5_SerialPortSettingsModel_BaudRateValue(object instance)
+        {
+            var that = (global::Robot_Test_Tool.Model.SerialPortSettingsModel)instance;
+            return that.BaudRateValue;
+        }
+        private void set_5_SerialPortSettingsModel_BaudRateValue(object instance, object Value)
+        {
+            var that = (global::Robot_Test_Tool.Model.SerialPortSettingsModel)instance;
+            that.BaudRateValue = (global::System.UInt32)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "Robot_Test_Tool.MainPage.Scenarios":
+                userType = (global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Robot_Test_Tool.MainPage");
+                xamlMember = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlMember(this, "Scenarios", "System.Collections.Generic.List`1<Robot_Test_Tool.Scenario>");
+                xamlMember.Getter = get_0_MainPage_Scenarios;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Robot_Test_Tool.Scenario.Title":
+                userType = (global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Robot_Test_Tool.Scenario");
+                xamlMember = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlMember(this, "Title", "String");
+                xamlMember.Getter = get_1_Scenario_Title;
+                xamlMember.Setter = set_1_Scenario_Title;
+                break;
+            case "Robot_Test_Tool.Scenario.ClassType":
+                userType = (global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Robot_Test_Tool.Scenario");
+                xamlMember = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlMember(this, "ClassType", "System.Type");
+                xamlMember.Getter = get_2_Scenario_ClassType;
+                xamlMember.Setter = set_2_Scenario_ClassType;
+                break;
+            case "Robot_Test_Tool.Scenario1.BaudRate":
+                userType = (global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Robot_Test_Tool.Scenario1");
+                xamlMember = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlMember(this, "BaudRate", "System.Collections.Generic.List`1<Robot_Test_Tool.Model.SerialPortSettingsModel>");
+                xamlMember.Getter = get_3_Scenario1_BaudRate;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Robot_Test_Tool.Model.SerialPortSettingsModel.BaudRateName":
+                userType = (global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Robot_Test_Tool.Model.SerialPortSettingsModel");
+                xamlMember = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlMember(this, "BaudRateName", "String");
+                xamlMember.Getter = get_4_SerialPortSettingsModel_BaudRateName;
+                xamlMember.Setter = set_4_SerialPortSettingsModel_BaudRateName;
+                break;
+            case "Robot_Test_Tool.Model.SerialPortSettingsModel.BaudRateValue":
+                userType = (global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Robot_Test_Tool.Model.SerialPortSettingsModel");
+                xamlMember = new global::Robot_Test_Tool.Robot_Test_Tool_XamlTypeInfo.XamlMember(this, "BaudRateValue", "UInt32");
+                xamlMember.Getter = get_5_SerialPortSettingsModel_BaudRateValue;
+                xamlMember.Setter = set_5_SerialPortSettingsModel_BaudRateValue;
+                break;
+            }
             return xamlMember;
         }
     }
