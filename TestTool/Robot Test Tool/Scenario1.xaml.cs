@@ -52,6 +52,7 @@ namespace Robot_Test_Tool
         private bool controllerPressed = false;
 
         private int leftMotorSpeed, rightMotorSpeed;
+        private int speed = 0;
         private Vector2 controllerInitPos;
 
         private MainPage rootPage = MainPage.Current;
@@ -399,7 +400,7 @@ namespace Robot_Test_Tool
 
         private void OnPointerMoved(object sender, PointerRoutedEventArgs eventArgs)
         {
-            Debug.WriteLine("pointer pressed moved");
+         //   Debug.WriteLine("pointer pressed moved");
             if (!controllerPressed)
                 return;
 
@@ -416,7 +417,7 @@ namespace Robot_Test_Tool
               
                 if (y < 0)
                 {
-                    int speed = (int)(-y+1)*4 ;// I set the motor PWM under 200, the biggest of y is 50
+                    speed = (int)(-y+1)*4 ;// I set the motor PWM under 200, the biggest of y is 50
                     SetMotorSpeed(speed);
                     MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed);
                 }
@@ -431,10 +432,16 @@ namespace Robot_Test_Tool
 
         private void OnPointerReleased(object sender, PointerRoutedEventArgs pointerRoutedEventArgs)
         {
-            Debug.WriteLine("pointer realeased");
+         //   Debug.WriteLine("pointer realeased");
+
             controllerPressed = false;
+            
             JoystickTransform.X = 0;
             JoystickTransform.Y = 0;
+
+            speed = 0;
+            SetMotorSpeed(speed);
+            MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed);
         }
 
         private void Controller_PointerPressed(object sender, PointerRoutedEventArgs e)
