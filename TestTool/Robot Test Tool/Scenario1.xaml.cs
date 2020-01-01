@@ -398,7 +398,7 @@ namespace Robot_Test_Tool
             Window.Current.Content.PointerReleased += OnPointerReleased;
         }
 
-        private void OnPointerMoved(object sender, PointerRoutedEventArgs eventArgs)
+        private async void OnPointerMoved(object sender, PointerRoutedEventArgs eventArgs)
         {
          //   Debug.WriteLine("pointer pressed moved");
             if (!controllerPressed)
@@ -418,7 +418,7 @@ namespace Robot_Test_Tool
                 if (y < 0)
                 {
                     speed = (int)(-y+1)*4 ;// I set the motor PWM under 200, the biggest of y is 50
-                    SetMotorSpeed(speed);
+                   await SetMotorSpeed(speed);
                     MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed);
                 }
             }
@@ -430,7 +430,7 @@ namespace Robot_Test_Tool
 
         }
 
-        private void OnPointerReleased(object sender, PointerRoutedEventArgs pointerRoutedEventArgs)
+        private async void OnPointerReleased(object sender, PointerRoutedEventArgs pointerRoutedEventArgs)
         {
          //   Debug.WriteLine("pointer realeased");
 
@@ -440,7 +440,7 @@ namespace Robot_Test_Tool
             JoystickTransform.Y = 0;
 
             speed = 0;
-            SetMotorSpeed(speed);
+            await SetMotorSpeed(speed);
             MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed);
         }
 
@@ -463,17 +463,34 @@ namespace Robot_Test_Tool
 
 
         #region Motor Control
-        private async void SetMotorSpeed(int speed)
+        private  async Task SetMotorSpeed(int speed)
         {
+           
             leftMotorSpeed = speed;
-            if (serialPort != null)
+            try
             {
-                // Create the DataWriter object and attach to OutputStream
-                dataWriteObject = new DataWriter(serialPort.OutputStream);
+                if (serialPort != null)
+                {
+                    // Create the DataWriter object and attach to OutputStream
+                    dataWriteObject = new DataWriter(serialPort.OutputStream);
 
-                //Launch the WriteAsync task to perform the write
-                await WriteAsync();
+                    //Launch the WriteAsync task to perform the write
+                    await WriteAsync();
+                }
+                else return;
+            }catch(Exception e)
+            {
+                Msgbox.Show(e.Message);
             }
+            finally
+            {
+                if (dataWriteObject != null)
+                {
+                    dataWriteObject.DetachStream();
+                    dataWriteObject = null;
+                }
+            }
+           
         }
         #endregion
 
