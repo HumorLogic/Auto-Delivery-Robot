@@ -31,7 +31,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="串口号："
                                        Margin="10,15,0,10"/>
-                            <ComboBox x:ConnectionId='16' x:Name="PortNameComboBox"
+                            <ComboBox x:ConnectionId='20' x:Name="PortNameComboBox"
                                          ItemsSource="{Binding Source={StaticResource DeviceListSource}}"
                                          Width="130"
                                          Margin="0,10,10,10"
@@ -51,7 +51,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="波特率："
                                        Margin="10,15,0,10"/>
-                            <ComboBox x:ConnectionId='15' x:Name="BaudRateComboBox"
+                            <ComboBox x:ConnectionId='19' x:Name="BaudRateComboBox"
                                                                                             
                                         
                                         Width="130"
@@ -71,7 +71,7 @@
                         <ComboBoxItem>115200</ComboBoxItem>-->
                             </ComboBox>
                         </StackPanel>
-                        <ToggleButton x:ConnectionId='13' x:Name="SerialConnectBtn"
+                        <ToggleButton x:ConnectionId='17' x:Name="SerialConnectBtn"
                                                                        
                                          Content="打开从串口"
                                          Margin="10,0,0,0"
@@ -88,40 +88,87 @@
                 <TextBlock x:Name="testText"
                                   Text="null"
                                    HorizontalAlignment="Center"/>-->
-                        <TextBlock x:ConnectionId='14' x:Name="TipText"
+                        <TextBlock x:ConnectionId='18' x:Name="TipText"
                                   Text=""
                                    FontSize="10"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical">
-                        <Button x:ConnectionId='11' x:Name="ForwardBtn"
+                        <Button x:ConnectionId='16' x:Name="LeftButton"
+                                                              
+                                      Content="左转"
+                                      Width="50"
+                                      Height="40"
+                                  Margin="10,140,0,20"
+                                  HorizontalAlignment="Center"/>
+
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Vertical">
+                        
+                        <Button x:ConnectionId='13' x:Name="ForwardBtn"
                                                           
                                   Content="向前"
                                   Width="60"
                                   Height="40"
-                                  Margin="50,100,20,20"
+                                  Margin="25,80,20,5"
                                   HorizontalAlignment="Center"/>
-                        <Button x:ConnectionId='12' x:Name="BackwardBtn"
+                        <Grid>
+                            <Ellipse   
+                                            Fill="Red"
+                                            Height="50"
+                                            Width="50"
+                                            StrokeThickness="3"
+                                            Stroke="Red"
+                                            Margin="5,10,0,0"/>
+                            <Button x:ConnectionId='15' x:Name="StopBtn"
+                                                       
+                                  Width="25"
+                                  Height="25"
+                                  Background="White"
+                                  Margin="42.5,10,0,0"/>
+                        </Grid>
+                        <Button x:ConnectionId='14' x:Name="BackwardBtn"
                                                            
                                   Content="后退"
                                   Width="60"
                                   Height="40"
-                                  Margin="50,10,20,50"
+                                  Margin="25,15,20,0"
                                   HorizontalAlignment="Center"/>
+                     
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical">
-                        <Button x:ConnectionId='10' x:Name="StopBtn"
-                                  Content="停止"
-                                                       
-                                  Width="60"
+                        <Button x:ConnectionId='12' x:Name="RightBtn"
+                                  Content="右转"
+                                                        
+                                  Width="50"
                                   Height="40"
-                                  Background="DodgerBlue"
-                                  Margin="10,130,50,20"
+                                  Margin="0,140,50,20"
                                   HorizontalAlignment="Center"/>
 
                     </StackPanel>
+                      
+                    <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <TextBlock x:ConnectionId='10' x:Name="SliderSpeedText"
+                                               Text="速度："
+                                               />
+                            <Slider x:ConnectionId='11' x:Name="SpeedSlider"
+                                                                               
+                                        Orientation="Vertical"
+                                        Width="100"
+                                        Height="200"
+                                        TickFrequency="10"
+                                        TickPlacement="Outside"
+                                        Maximum="200"
+                                        Minimum="0"
+                                        Margin="25,20,0,0"/>
+                        </Grid>
+                        
+                    </StackPanel>
+                    
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>

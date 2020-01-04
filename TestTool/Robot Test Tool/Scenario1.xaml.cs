@@ -8,6 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Controls.Primitives;
 using System.Numerics;
 
 using Windows.Devices.Enumeration;
@@ -52,7 +53,9 @@ namespace Robot_Test_Tool
         private bool controllerPressed = false;
 
         private int leftMotorSpeed, rightMotorSpeed;
+        private char carDir = 'f';
         private int speed = 0;
+        private bool motorMoveState =true;
         private Vector2 controllerInitPos;
 
         private MainPage rootPage = MainPage.Current;
@@ -155,17 +158,18 @@ namespace Robot_Test_Tool
             serialPort = null;
             listOfDevice.Clear();
             AllPortName.Clear();
-            serialPortDeviceDic.Clear();
+            serialPortDeviceDic.Clear() ;
         }
 
         private async Task WriteAsync()
         {
             //throw new NotImplementedException();
             Task<UInt32> storeAsyncTask;
-
-            //  dataWriteObject.WriteString(message);
-            // dataWriteObject.WriteInt32(leftMotorSpeed);
-            dataWriteObject.WriteByte((byte)leftMotorSpeed);
+            dataWriteObject.WriteString(carDir.ToString());
+            dataWriteObject.WriteByte((byte)speed);
+           // dataWriteObject.WriteString(message);
+           
+           // dataWriteObject.WriteByte((byte)leftMotorSpeed);
             storeAsyncTask = dataWriteObject.StoreAsync().AsTask();
             UInt32 bytesWritten = await storeAsyncTask;
         }
@@ -349,42 +353,54 @@ namespace Robot_Test_Tool
 
         private async void ForwardBtn_Click(object sender, RoutedEventArgs e)
         {
-            message = "1";
-            if (serialPort != null)
-            {
-                // Create the DataWriter object and attach to OutputStream
-                dataWriteObject = new DataWriter(serialPort.OutputStream);
+            carDir = 'F';
+            speed = (int)SpeedSlider.Value;
+            await SetMotorSpeed(speed);
+            //if (serialPort != null)
+            //{
+            //    // Create the DataWriter object and attach to OutputStream
+            //    dataWriteObject = new DataWriter(serialPort.OutputStream);
 
-                //Launch the WriteAsync task to perform the write
-                await WriteAsync();
-            }
+            //    //Launch the WriteAsync task to perform the write
+            //    await WriteAsync();
+            //}
 
         }
 
         private async void BackwardBtn_Click(object sender, RoutedEventArgs e)
         {
-            message = "2";
-            if (serialPort != null)
-            {
-                // Create the DataWriter object and attach to OutputStream
-                dataWriteObject = new DataWriter(serialPort.OutputStream);
+            carDir = 'B';
+            speed = (int)SpeedSlider.Value;
+            await SetMotorSpeed(speed);
+            //if (serialPort != null)
+            //{
+            //    // Create the DataWriter object and attach to OutputStream
+            //    dataWriteObject = new DataWriter(serialPort.OutputStream);
 
-                //Launch the WriteAsync task to perform the write
-                await WriteAsync();
-            }
+            //    //Launch the WriteAsync task to perform the write
+            //    await WriteAsync();
+            //}
         }
 
         private async void StopBtn_Click(object sender, RoutedEventArgs e)
         {
-            message = "0";
-            if (serialPort != null)
-            {
-                // Create the DataWriter object and attach to OutputStream
-                dataWriteObject = new DataWriter(serialPort.OutputStream);
+            carDir = 'S';
+            speed = 0;
+            //speed = 0;
+            //if (serialPort != null) ;
+            //{
+            //    // Create the DataWriter object and attach to OutputStream
+            //    dataWriteObject = new DataWriter(serialPort.OutputStream);
 
-                //Launch the WriteAsync task to perform the write
-                await WriteAsync();
-            }
+            //    //Launch the WriteAsync task to perform the write
+            //    await WriteAsync();
+            //}
+            //controllerPressed = false;
+            //JoystickTransform.X = 0;
+            //JoystickTransform.Y = 0;
+            //speed = 203;
+            await SetMotorSpeed(speed);
+
         }
 
 
@@ -459,11 +475,32 @@ namespace Robot_Test_Tool
             JoystickTransform.Y = 0;
         }
 
+        private async void RightBtn_Click(object sender, RoutedEventArgs e)
+        {
+            carDir = 'R';
+            speed = (int)SpeedSlider.Value;
+            await SetMotorSpeed(speed);
+        }
+
+        private async void LeftButton_Click(object sender, RoutedEventArgs e)
+        {
+            carDir = 'L';
+            speed = (int)SpeedSlider.Value;
+            await SetMotorSpeed(speed);
+
+        }
+
+        private void SpeedSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            //Debug.WriteLine(e.NewValue);
+            SliderSpeedText.Text = "速度：" + e.NewValue.ToString();
+            speed =(int) e.NewValue;
+        }
+
         #endregion
 
-
         #region Motor Control
-        private  async Task SetMotorSpeed(int speed)
+        private async Task SetMotorSpeed(int speed)
         {
            
             leftMotorSpeed = speed;
