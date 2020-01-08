@@ -1,4 +1,6 @@
+#include <Servo.h>
 
+Servo myservo;
 const int LedPin = 13;
 
 //Front-left motorB pin
@@ -34,7 +36,10 @@ void setup()
 {
     Serial1.begin(115200);
     Serial.begin(9600);
+    myservo.attach(9);
+    myservo.write(90);
     pinMode(LedPin, OUTPUT);
+    
 
     pinMode(motorA_IN3_pin, OUTPUT);
     pinMode(motorA_IN4_pin, OUTPUT);
@@ -151,46 +156,52 @@ void motor_forward_test(int mspeed)
 // Turn left
 void motor_Left(int mSpeed)
 {
+   myservo.write(130);
     digitalWrite(motorC_IN3_pin, HIGH);
     digitalWrite(motorC_IN4_pin, LOW);
     analogWrite(motorC_PWM_pin, mSpeed);
 
-    digitalWrite(motorD_IN1_pin, HIGH);
-    digitalWrite(motorD_IN2_pin, LOW);
-    analogWrite(motorD_PWM_pin, mSpeed/4);
-
     digitalWrite(motorA_IN3_pin, HIGH);
     digitalWrite(motorA_IN4_pin, LOW);
     analogWrite(motorA_PWM_pin, mSpeed);
+    
 
-    digitalWrite(motorB_IN1_pin, LOW);
-    digitalWrite(motorB_IN2_pin, mSpeed/4);
-    analogWrite(motorB_PWM_pin, 100);
+    digitalWrite(motorD_IN1_pin, HIGH);
+    digitalWrite(motorD_IN2_pin, 0);
+    analogWrite(motorD_PWM_pin, mSpeed);
 
-    delay(2000);
-    inDir='S';
+    
+
+    digitalWrite(motorB_IN1_pin, HIGH);
+    digitalWrite(motorB_IN2_pin, 0);
+    analogWrite(motorB_PWM_pin, mSpeed);
+
+//    delay(2000);
+//    inDir='S';
 }
 
 // Turn Right
 void motor_Right(int mSpeed){
+
+    myservo.write(50);
     digitalWrite(motorC_IN3_pin, HIGH);
-    digitalWrite(motorC_IN4_pin, LOW);
-    analogWrite(motorC_PWM_pin, mSpeed/4);
+    digitalWrite(motorC_IN4_pin, 0);
+    analogWrite(motorC_PWM_pin, mSpeed);
 
     digitalWrite(motorD_IN1_pin, HIGH);
     digitalWrite(motorD_IN2_pin, LOW);
     analogWrite(motorD_PWM_pin, mSpeed);
 
     digitalWrite(motorA_IN3_pin, HIGH);
-    digitalWrite(motorA_IN4_pin, LOW);
-    analogWrite(motorA_PWM_pin, mSpeed/4);
+    digitalWrite(motorA_IN4_pin, 0);
+    analogWrite(motorA_PWM_pin, mSpeed);
 
     digitalWrite(motorB_IN1_pin, HIGH);
     digitalWrite(motorB_IN2_pin, LOW);
     analogWrite(motorB_PWM_pin, mSpeed);
 
-    delay(2000);
-    inDir='S';
+//    delay(2000);
+//    inDir='S';
 }
 
 //电机向前
