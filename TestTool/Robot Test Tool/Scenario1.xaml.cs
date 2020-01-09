@@ -55,7 +55,11 @@ namespace Robot_Test_Tool
         private int leftMotorSpeed, rightMotorSpeed;
         private char carDir = 'f';
         private int speed = 0;
-        private bool motorMoveState =true;
+        private int tempOffset = 0;
+        private int offset = 2;
+        private int steer = 90;
+        private int count = 0;
+        private bool motorMoveState = true;
         private Vector2 controllerInitPos;
 
         private MainPage rootPage = MainPage.Current;
@@ -78,7 +82,7 @@ namespace Robot_Test_Tool
 
             // ConfigureUIEvents();
             Loaded += OnLoaded;
-            
+
         }
 
         #endregion
@@ -158,7 +162,7 @@ namespace Robot_Test_Tool
             serialPort = null;
             listOfDevice.Clear();
             AllPortName.Clear();
-            serialPortDeviceDic.Clear() ;
+            serialPortDeviceDic.Clear();
         }
 
         private async Task WriteAsync()
@@ -167,9 +171,10 @@ namespace Robot_Test_Tool
             Task<UInt32> storeAsyncTask;
             dataWriteObject.WriteString(carDir.ToString());
             dataWriteObject.WriteByte((byte)speed);
-           // dataWriteObject.WriteString(message);
-           
-           // dataWriteObject.WriteByte((byte)leftMotorSpeed);
+            dataWriteObject.WriteByte((byte)steer);
+            // dataWriteObject.WriteString(message);
+
+            // dataWriteObject.WriteByte((byte)leftMotorSpeed);
             storeAsyncTask = dataWriteObject.StoreAsync().AsTask();
             UInt32 bytesWritten = await storeAsyncTask;
         }
@@ -416,7 +421,7 @@ namespace Robot_Test_Tool
 
         private async void OnPointerMoved(object sender, PointerRoutedEventArgs eventArgs)
         {
-         //   Debug.WriteLine("pointer pressed moved");
+            //   Debug.WriteLine("pointer pressed moved");
             if (!controllerPressed)
                 return;
 
@@ -429,13 +434,45 @@ namespace Robot_Test_Tool
             {
                 JoystickTransform.X = x;
                 JoystickTransform.Y = y;
+             //   Debug.WriteLine(side.ToString());
 
-              
+
                 if (y < 0)
                 {
-                    speed = (int)(-y+1)*4 ;// I set the motor PWM under 200, the biggest of y is 50
-                   await SetMotorSpeed(speed);
-                    MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed);
+                    speed = (int)(-y + 1) * 4;// I set the motor PWM under 200, the biggest of y is 50
+                    if (Math.Abs(side-tempOffset) > offset)
+                    {
+                        count++;
+                        Debug.WriteLine(count);
+                        tempOffset = (int)side;
+                        carDir = 'F';
+                        steer = (int)(90 - x);
+                        await SetMotorSpeed(speed);
+                        MotorInfoText.Text = "前进速度(m/s)：" + String.Format("{0:f}", speed) + "     转向(°):" + steer.ToString();
+                        
+                    }
+
+                }
+                else if (y > 0)
+                {
+                    speed = (int)(y * 4);
+                    if (Math.Abs(side - tempOffset) > offset)
+                    {
+                        tempOffset = (int)side;
+                        carDir = 'B';
+                        steer = (int)(90 - x );
+                        await SetMotorSpeed(speed);
+                        MotorInfoText.Text = "后退速度(m/s)：" + String.Format("{0:f}", speed) + "     转向(°):" + steer.ToString();
+
+                    }
+                }
+                else
+                {
+                    carDir = 'S';
+                    speed = 0;
+                    steer = 90;
+                    await SetMotorSpeed(speed);
+                    MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed) + "     转向(°):" + steer.ToString();
                 }
             }
             else
@@ -448,16 +485,18 @@ namespace Robot_Test_Tool
 
         private async void OnPointerReleased(object sender, PointerRoutedEventArgs pointerRoutedEventArgs)
         {
-         //   Debug.WriteLine("pointer realeased");
+            //   Debug.WriteLine("pointer realeased");
 
             controllerPressed = false;
-            
+
             JoystickTransform.X = 0;
             JoystickTransform.Y = 0;
 
             speed = 0;
+            steer = 90;
+            tempOffset = 0;
             await SetMotorSpeed(speed);
-            MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed);
+            MotorInfoText.Text = "速度(m/s)：" + String.Format("{0:f}", speed) + "     转向(°):" + steer.ToString();
         }
 
         private void Controller_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -494,7 +533,7 @@ namespace Robot_Test_Tool
         {
             //Debug.WriteLine(e.NewValue);
             SliderSpeedText.Text = "速度：" + e.NewValue.ToString();
-            speed =(int) e.NewValue;
+            speed = (int)e.NewValue;
         }
 
         #endregion
@@ -502,7 +541,7 @@ namespace Robot_Test_Tool
         #region Motor Control
         private async Task SetMotorSpeed(int speed)
         {
-           
+
             leftMotorSpeed = speed;
             try
             {
@@ -515,7 +554,8 @@ namespace Robot_Test_Tool
                     await WriteAsync();
                 }
                 else return;
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Msgbox.Show(e.Message);
             }
@@ -527,7 +567,7 @@ namespace Robot_Test_Tool
                     dataWriteObject = null;
                 }
             }
-           
+
         }
         #endregion
 

@@ -31,13 +31,14 @@ bool isBackward = false;
 
 char inDir = 'S';
 int inSpeed = 0;
+int steer = 90;
 
 void setup()
 {
     Serial1.begin(115200);
     Serial.begin(9600);
     myservo.attach(9);
-    myservo.write(90);
+    myservo.write(steer);
     pinMode(LedPin, OUTPUT);
     
 
@@ -63,20 +64,24 @@ void loop()
 {
    
     
-    if (Serial1.available() > 1)
+    if (Serial1.available() > 2)
     {
         inDir = Serial1.read();
-        delay(10);
-        Serial.println(inDir);
+        delay(5);
+        //Serial.println(inDir);
         inSpeed = Serial1.read();
-        delay(10);
-        Serial.println(inSpeed);
+        delay(5);
+        //Serial.println(inSpeed);
+        steer = Serial1.read();
+        delay(5);
+         //Serial.println(steer);
        
     }
 
     digitalWrite(LedPin, ledState);
   
     drive_motor(inDir,inSpeed);
+    set_direction(steer);
     
     //delay(50);
     //delay(50);
@@ -151,7 +156,9 @@ void motor_forward_test(int mspeed)
 
     
 }
-
+void set_direction(int steer){
+  myservo.write(steer);
+  }
 
 // Turn left
 void motor_Left(int mSpeed)
