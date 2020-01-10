@@ -516,15 +516,17 @@ namespace Robot_Test_Tool
 
         private async void RightBtn_Click(object sender, RoutedEventArgs e)
         {
-            carDir = 'R';
-            speed = (int)SpeedSlider.Value;
+            if (steer >= 55)
+                steer -= 15;
+            else return;
             await SetMotorSpeed(speed);
         }
 
         private async void LeftButton_Click(object sender, RoutedEventArgs e)
         {
-            carDir = 'L';
-            speed = (int)SpeedSlider.Value;
+            if (steer <= 125)
+                steer += 15;
+            else return;
             await SetMotorSpeed(speed);
 
         }

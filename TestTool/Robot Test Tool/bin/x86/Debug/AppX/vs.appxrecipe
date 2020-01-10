@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-01-09T14:06:48.535</Modified>
+      <Modified>2020-01-10T08:23:43.595</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Robot Test Tool.exe">
       <PackagePath>entrypoint\Robot Test Tool.exe</PackagePath>
-      <Modified>2020-01-09T14:06:47.819</Modified>
+      <Modified>2020-01-10T08:23:43.116</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -50,9 +50,21 @@
       <PackagePath>Assets\DeliveryBot.png</PackagePath>
       <Modified>2019-12-09T13:30:03.886</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\down.png">
+      <PackagePath>Assets\down.png</PackagePath>
+      <Modified>2020-01-10T07:44:32.244</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\left.png">
+      <PackagePath>Assets\left.png</PackagePath>
+      <Modified>2020-01-10T07:44:03.296</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\LOGO2.png">
       <PackagePath>Assets\LOGO2.png</PackagePath>
       <Modified>2019-12-10T07:15:33.892</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\right.png">
+      <PackagePath>Assets\right.png</PackagePath>
+      <Modified>2020-01-10T07:39:43.273</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\roboticon.png">
       <PackagePath>Assets\roboticon.png</PackagePath>
@@ -61,6 +73,10 @@
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\toolicon.png">
       <PackagePath>Assets\toolicon.png</PackagePath>
       <Modified>2019-12-10T04:26:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\up.png">
+      <PackagePath>Assets\up.png</PackagePath>
+      <Modified>2020-01-10T07:44:15.398</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -106,27 +122,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Robot Test Tool.xr.xml">
       <PackagePath>Robot Test Tool.xr.xml</PackagePath>
-      <Modified>2020-01-04T04:25:49.457</Modified>
+      <Modified>2020-01-10T07:57:12.104</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-01-09T13:28:48.705</Modified>
+      <Modified>2020-01-10T08:14:39.574</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-01-09T13:28:48.705</Modified>
+      <Modified>2020-01-10T08:14:39.574</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Scenario1.xbf">
       <PackagePath>Scenario1.xbf</PackagePath>
-      <Modified>2020-01-09T13:28:48.705</Modified>
+      <Modified>2020-01-10T08:14:39.575</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Scenario2.xbf">
       <PackagePath>Scenario2.xbf</PackagePath>
-      <Modified>2020-01-09T13:28:48.705</Modified>
+      <Modified>2020-01-10T08:14:39.575</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Scenario3.xbf">
       <PackagePath>Scenario3.xbf</PackagePath>
-      <Modified>2020-01-09T13:28:48.705</Modified>
+      <Modified>2020-01-10T08:14:39.575</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -134,11 +150,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-12-28T01:53:51.016</Modified>
+      <Modified>2020-01-10T07:57:12.845</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\bin\x86\Debug\Core\Robot Test Tool.exe">
       <PackagePath>Robot Test Tool.exe</PackagePath>
-      <Modified>2020-01-09T14:06:48.436</Modified>
+      <Modified>2020-01-10T08:23:43.589</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

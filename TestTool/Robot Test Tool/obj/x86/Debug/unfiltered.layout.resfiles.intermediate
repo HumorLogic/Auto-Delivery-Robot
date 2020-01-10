@@ -1,8 +1,11 @@
 WinMetadata\Windows.winmd
 Assets\DeliveryBot.png
+Assets\down.png
+Assets\left.png
 Assets\LockScreenLogo.scale-200.png
 Assets\LOGO2.png
 Assets\LogoIcon.jpg
+Assets\right.png
 Assets\roboticon.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
@@ -10,6 +13,7 @@ Assets\Square44x44Logo.scale-200.png
 Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\toolicon.png
+Assets\up.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 MainPage.xbf

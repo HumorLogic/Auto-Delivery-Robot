@@ -37,14 +37,26 @@
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\DeliveryBot.png">
       <PackagePath>Assets\DeliveryBot.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\down.png">
+      <PackagePath>Assets\down.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\left.png">
+      <PackagePath>Assets\left.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\LOGO2.png">
       <PackagePath>Assets\LOGO2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\right.png">
+      <PackagePath>Assets\right.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\roboticon.png">
       <PackagePath>Assets\roboticon.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\toolicon.png">
       <PackagePath>Assets\toolicon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\up.png">
+      <PackagePath>Assets\up.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\humor\Documents\Projects\Auto-Delivery-Robot\TestTool\Robot Test Tool\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
